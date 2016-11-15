@@ -1,4 +1,4 @@
-# R-varspr-ket
+# Final Project
 ---
 < insert photos >
 
