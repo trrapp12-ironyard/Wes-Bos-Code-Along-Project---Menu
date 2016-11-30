@@ -39,7 +39,8 @@ class App extends React.Component {
         order: JSON.parse(localStorageRef)
       });
     }
-  }
+
+}
 
 componentWillUnmount() {
   base.removeBinding(this.ref);
@@ -68,6 +69,7 @@ componentWillUpdate(nextProps, nextState) {
     const fishes = {...this.state.fishes};
     fishes[key] = null;
     this.setState({ fishes });
+  }
 
   loadSamples() {
     this.setState({
@@ -84,10 +86,10 @@ componentWillUpdate(nextProps, nextState) {
     this.setState({ order });
   }
 
-  removeFromOrder() {
+  removeFromOrder(key) {
     const order = {...this.state.order};
     delete order[key];
-    this.setState({ order});
+    this.setState({ order });
   }
 
   render() {
@@ -99,16 +101,23 @@ componentWillUpdate(nextProps, nextState) {
             {
               Object
                 .keys(this.state.fishes)
-                .map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={() => this.addToOrder('fish-1')}/>)
+                .map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder}/>)
             }
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order}
-        params={this.props.params}
-        removeFromOrder={this.removeFromOrder}/>
-        <Inventory addFish={this.addFish}
-        removeFish={this.removeFish} loadSamples={this.loadSamples} fishes={this.state.fishes}
-        updateFish={this.updateFish}/>
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          params={this.props.params}
+          removeFromOrder={this.removeFromOrder}
+        />
+        <Inventory
+          addFish={this.addFish}
+          removeFish={this.removeFish}
+          loadSamples={this.loadSamples}
+          fishes={this.state.fishes}
+          updateFish={this.updateFish}
+        />
       </div>
     )
   }
