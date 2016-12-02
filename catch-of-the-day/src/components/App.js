@@ -96,7 +96,7 @@ componentWillUpdate(nextProps, nextState) {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header tagline="Fresh Seafood Market" />
+          <Header tagline={"Fresh Seafood Market"} />
           <ul className="list-of-fishes">
             {
               Object

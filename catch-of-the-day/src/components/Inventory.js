@@ -5,6 +5,7 @@ class Inventory extends React.Component {
   constructor() {
     super();
     this.renderInventory = this.renderInventory.bind(this);
+    this.renderLogin = this.renderLogin.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
   }
@@ -19,6 +20,18 @@ class Inventory extends React.Component {
   this.props.updateFish(key, updatedFish);
 }
 
+renderLogin() {
+  return(
+    <nav className="login">
+      <h2>Inventory</h2>
+      <p>Sign in to manage inventory</p>
+      <button className="facebook" onClick={() => this.authenticate('facebook')}Log in with Facebook</button>
+      <button className="facebook" onClick={() => this.authenticate('google')}Log in with Google</button>
+      <button className="twitter" onClick={() => this.authenticate('email')}Log in with Email</button>
+  )
+}
+
+
   renderInventory(key) {
     const fish = this.props.fishes[key];
     return (
@@ -32,12 +45,19 @@ class Inventory extends React.Component {
         </select>
         <textarea type="text" name="desc" value={fish.desc} placeholder="Fish Desc" onChange={(e) => this.handleChange(e, key)}></textarea>
         <input type="text" name="image" value={fish.image} placeholder="Fish Image" onChange={(e) => this.handleChange(e, key)}/>
-        <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
+        <button onClick={() => this.props.removeFish(key)
+        }>Remove Fish</button>
       </div>
     )
   }
 
   render() {
+    // check to see if no one logged in at all
+    if(!this.state.uid) {
+      return <div>{this.renderLogin()}</div>
+    }
+
+
     return (
       <div>
         <h2>Inventory</h2>
