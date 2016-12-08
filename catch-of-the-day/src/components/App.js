@@ -73,13 +73,13 @@ componentWillUpdate(nextProps, nextState) {
 
   loadSamples() {
     this.setState({
-      fishes. sampleFishes
+      fishes:sampleFishes
     });
   }
 
   addToOrder(key) {
     // take a copy of our state
-    const order -= {...this.state.order};
+    const order = {...this.state.order};
     // update or add the new numb3er ot the fist order
     order[key] = order[key] + 1 || 1;
     // update state
