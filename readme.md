@@ -1,6 +1,6 @@
 # Final Project
 ---
-https://cloud.githubusercontent.com/assets/11747875/22054599/9a93dc26-dd13-11e6-8e70-1a8c94618d18.jpg
+![welcomescreen]https://cloud.githubusercontent.com/assets/11747875/22054599/9a93dc26-dd13-11e6-8e70-1a8c94618d18.jpg
 
 ###Description:
 ---
