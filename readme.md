@@ -36,7 +36,7 @@ This is a project based off [ReactForBeginners.com](https://ReactForBeginners.co
 
 ### Project published at: 
 
-https://guarded-ocean-71667.herokuapp.com/store/adorable-uptight-people
+W.I.P
 
 <br>
 <br>
